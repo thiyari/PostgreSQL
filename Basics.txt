@@ -1,0 +1,37 @@
+Opening PostgreSQL:
+> psql -U postgres
+
+To see list of databases:
+> \l
+
+To use database:
+> \c postgres
+
+To show tables:
+> \dt
+
+Creating Database:
+> CREATE DATABASE acme;
+
+To see the list of current users:
+> SELECT * FROM pg_user;
+
+To create a user:
+> CREATE USER devuser WITH PASSWORD '123456';
+
+To set the superuser to true for the user "devuser":
+> ALTER USER devuser WITH SUPERUSER;
+
+##### For changing the password of a user:
+##### > UPDATE pg_shadow SET passwd = 'something' WHERE username = 'devuser';
+
+Adding the user to the database:
+> GRANT ALL ON database acme TO devuser;
+
+Logout to exit:
+> \q
+
+Logging with database user 'devuser' with database 'acme':
+> psql -U devuser acme
+
+

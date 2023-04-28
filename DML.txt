@@ -1,0 +1,30 @@
+Creating articles table
+> CREATE TABLE articles(id SERIAL PRIMARY KEY, title VARCHAR(255),body TEXT);
+
+Inserting into articles table
+> INSERT INTO articles(title, body) VALUES('Article One', 'This is the body for article one');
+> INSERT INTO articles(title, body) VALUES('Article Two', 'This is the body for article two');
+> INSERT INTO articles(title, body) VALUES('Article Three', 'This is the body for article three');
+
+Selecting the articles table
+> SELECT * FROM articles;
+
+Creating categories table
+> CREATE TABLE categories(id SERIAL PRIMARY KEY, name VARCHAR(255));
+
+Inserting into categories table
+> INSERT INTO categories(name) VALUES('Business'),('Technology'),('Style');
+
+Adding column to articles
+> ALTER TABLE articles ADD COLUMN category_id INT;
+
+updating the columns in articles
+> UPDATE articles SET category_id = 1 WHERE id = 1;
+> UPDATE articles SET category_id = 1 WHERE id = 2;
+> UPDATE articles SET category_id = 2 WHERE id = 3;
+
+Adding a foreign key constraing on articles
+> ALTER TABLE articles ADD CONSTRAINT catfk FOREIGN KEY(category_id) REFERENCES categories(id);
+
+Deleting the record from articles
+> DELETE FROM articles WHERE id = 3;
